@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "cross-env NODE_ENV=test mocha --require babel-core/register --require babel-polyfill  --exit",
+    "pretest": "eslint *.js ./server/beers/*.js ./test/*.js",
     "start": "nodemon index.js"
   },
   "author": "",
@@ -24,12 +25,20 @@
     "@typescript-eslint/eslint-plugin": "^2.10.0",
     "@typescript-eslint/parser": "^2.10.0",
     "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
     "babel-eslint": "^10.0.3",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
+    "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "babel-register": "^6.26.0",
     "eslint": "^6.7.2",
-    "eslint-plugin-react": "^7.17.0"
+    "eslint-plugin-react": "^7.17.0",
+    "mocha": "^6.2.2",
+    "mockgoose": "^8.0.4",
+    "should": "^13.2.3",
+    "sinon": "^7.5.0",
+    "sinon-test": "^2.4.1",
+    "supertest": "^4.0.2"
   },
   "description": ""
 }
