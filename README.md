@@ -13,3 +13,4 @@ beer style. There is a private section where the user can enter their own review
 - Beer Reviews are a nested array within each beer document in the collection
 - Use of Mongoose as a object-document model module in Node.js for MongoDB
 - validations on all entered data
+- Integration testing added
