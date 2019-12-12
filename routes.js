@@ -72,10 +72,25 @@ router.delete('/deleteBeer/:_id', (req, res) => {
 
 // this is the create method
 // this method adds a review to each beer
-router.post('/addreview', (req, res) => {
-    //let data = new Collection();
-    console.log(req.body);
+router.post('/addReview', (req, res) => {
+    const {_id } = req.params;
+    Collection.findOne({_id}, (err, beer) => {
+        if (err) return res.send(err);
+        console.log(beer);
+        beer.updateOne({$set: {
+            reviews: {
+                beerName: beerName,
+                date: date,
+                comments: comments
+            }}}).then(() => {
+                console.log("review has been updated");
+              return res.json({ success: true })
+            }).catch(err => {
+                return res.send(err);
+            })
+        });
 });
+
 
 
 // this is the update method
